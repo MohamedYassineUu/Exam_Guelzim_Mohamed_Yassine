@@ -17,7 +17,7 @@ namespace Exam_Guelzim_Mohamed_Yassine
             sw.Close();
         }
 
-        public bool FindAdministrateur(string nom, string password)
+        public string[] FindAdministrateur(string nom, string password)
         {
             StreamReader sd = new StreamReader(FileAdministrateur);
             string line = sd.ReadLine();
@@ -27,13 +27,13 @@ namespace Exam_Guelzim_Mohamed_Yassine
                 if (dd[1] == nom && dd[3] == password)
                 {
                     sd.Close();
-                    return true;
+                    return dd;
 
                 }
                 line = sd.ReadLine();
             }
             sd.Close();
-            return false;
+            return null;
         }
     }
 }

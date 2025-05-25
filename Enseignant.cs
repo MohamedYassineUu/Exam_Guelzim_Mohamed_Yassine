@@ -128,7 +128,6 @@ namespace Exam_Guelzim_Mohamed_Yassine
         private void button5_Click(object sender, EventArgs e)
         {
             ModuleDao moduleDao = new ModuleDao();
-            moduleDao.AddModule(1, "Physique", 1);
             dataGridView3.Visible = false;
             dataGridView2.Visible = true;
             dataGridView2.DataSource = null;

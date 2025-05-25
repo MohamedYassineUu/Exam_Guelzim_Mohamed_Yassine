@@ -53,17 +53,17 @@ namespace Exam_Guelzim_Mohamed_Yassine
                     }
                     break;
                 case "Administrateur":
-                    //String[] adminSave = adDao.FindAdministrateur(textBox1.Text, textBox2.Text);
-                    //if (adminSave != null)
-                    //{
-                    //    this.Hide();
-                    //    Administrateur admin = new Administrateur();
-                    //    admin.Show();
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("Identifiant ou mot de passe incorrect");
-                    //}
+                    String[] adminSave = adDao.FindAdministrateur(textBox1.Text, textBox2.Text);
+                    if (adminSave != null)
+                    {
+                        this.Hide();
+                        Administrateur admin = new Administrateur(adminSave[1], adminSave[2]);
+                        admin.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Identifiant ou mot de passe incorrect");
+                    }
                     break;
                 default:
                     MessageBox.Show("Veuillez choisir un rôle.");

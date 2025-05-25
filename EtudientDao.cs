@@ -54,6 +54,55 @@ namespace Exam_Guelzim_Mohamed_Yassine
             sd.Close();
             return e;
         }
+        public List<Etudiants> ALLEtudiants()
+        {
+            List<Etudiants> es = new List<Etudiants>();
+            StreamReader sd = new StreamReader(FileEtudiant);
+            string line = sd.ReadLine();
+            while (line != null)
+            {
+                string[] dd = line.Split(",");
+
+                Etudiants e = new Etudiants();
+                e.Etudiantid = Int32.Parse(dd[0]);
+                e.Nom = dd[1];
+                e.Prenom = dd[2];
+                e.Password = dd[3];
+                es.Add(e);
+                line = sd.ReadLine();
+            }
+            sd.Close();
+            return es;
+        }
+        public void SupprimerEtudiantParId(int id)
+        {
+            List<string> lignes = new List<string>();
+
+
+            StreamReader sr = new StreamReader(FileEtudiant);
+            string line = sr.ReadLine();
+
+            while (line != null)
+            {
+                string[] dd = line.Split(",");
+
+                if (Int32.Parse(dd[0]) != id) { 
+
+                    lignes.Add(line);
+
+                }
+
+                line = sr.ReadLine();
+            }
+            sr.Close();
+
+            StreamWriter sw = new StreamWriter(FileEtudiant, false);
+            foreach (string l in lignes)
+            {
+                sw.WriteLine(l);
+            }
+            sw.Close();
+        }
 
     }
 }
